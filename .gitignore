@@ -11,3 +11,5 @@
 /.snakemake/
 
 slurm*
+
+*.out

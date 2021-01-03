@@ -1,0 +1,13 @@
+/data/Wm82.a2.v1.subset.dict
+/data/Wm82.a2.v1.subset.fa.amb
+/data/Wm82.a2.v1.subset.fa.ann
+/data/Wm82.a2.v1.subset.fa.bwt
+/data/Wm82.a2.v1.subset.fa.fai
+/data/Wm82.a2.v1.subset.fa.pac
+/data/Wm82.a2.v1.subset.fa.sa
+
+/output/
+
+/.snakemake/
+
+slurm*

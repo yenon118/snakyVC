@@ -3,7 +3,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The snakyVC is a pipeline built for variant calling using next-generation sequencing (NGS) whole genome sequencing datasets.
+The snakyVC is a pipeline built for variant calling using next-generation sequencing (NGS) whole-genome sequencing datasets.
 
 ## Requirements
 

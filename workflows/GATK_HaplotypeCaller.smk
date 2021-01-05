@@ -30,6 +30,25 @@ rule all:
          expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf/{sample}.g.vcf', sample=samples),
          expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf_gz/{sample}.g.vcf.gz', sample=samples)
 
-include: './../tasks/gatk/gatk_haplotypecaller.smk'
+
+rule gatk_haplotypecaller:
+    input:
+         fasta = reference_file,
+         in_file = os.path.join(input_folder,'{sample}'+input_extension)
+    output:
+          out_file = os.path.join(output_folder,'GATK_HaplotypeCaller_gvcf/{sample}.g.vcf'),
+          out_tmp_dir = temp(directory(os.path.join(output_folder,'GATK_HaplotypeCaller_gvcf/tmp/{sample}')))
+    log:
+       os.path.join(output_folder,'GATK_HaplotypeCaller_gvcf_log/{sample}.log')
+    params:
+          '-ERC GVCF'
+    resources:
+             memory = memory
+    conda:
+         "./../../envs/gatk.yaml"
+    shell:
+         'mkdir -p {output.out_tmp_dir}; '
+         'gatk --java-options "-Xmx{resources.memory}g" HaplotypeCaller --tmp-dir {output.out_tmp_dir} {params} -R {input.fasta} -I {input.in_file} -O {output.out_file} 2> {log}'
+
 
 include: './../tasks/bgzip/bgzip_gz_gvcf_file.smk'

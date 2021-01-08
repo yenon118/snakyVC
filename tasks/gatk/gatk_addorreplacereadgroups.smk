@@ -1,11 +1,11 @@
 rule gatk_addorreplacereadgroups:
     input:
-         in_file = os.path.join(output_folder,'GATK_MarkDuplicates/{sample}.bam')
+         in_file = os.path.join(os.path.abspath(output_folder),'GATK_MarkDuplicates/{sample}.bam')
     output:
-          out_file = os.path.join(output_folder,'GATK_AddOrReplaceReadGroups/{sample}.bam'),
-          out_tmp_dir = temp(directory(os.path.join(output_folder,'GATK_AddOrReplaceReadGroups/tmp/{sample}/')))
+          out_file = os.path.join(os.path.abspath(output_folder),'GATK_AddOrReplaceReadGroups/{sample}.bam'),
+          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_AddOrReplaceReadGroups/tmp/{sample}/')))
     log:
-       os.path.join(output_folder,'GATK_AddOrReplaceReadGroups_log/{sample}.log')
+       os.path.join(os.path.abspath(output_folder),'GATK_AddOrReplaceReadGroups_log/{sample}.log')
     params:
           p1 = '--SORT_ORDER coordinate --CREATE_INDEX true --MAX_RECORDS_IN_RAM 5000000 --VALIDATION_STRINGENCY LENIENT',
           p2 = '--RGID {sample} --RGLB {sample} --RGPL Illumina --RGPU {sample} --RGSM {sample} --RGCN BGI'

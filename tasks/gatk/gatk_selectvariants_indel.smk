@@ -1,12 +1,12 @@
 rule gatk_selectvariants_indel:
     input:
          fasta = reference_file,
-         in_file = os.path.join(output_folder,'GATK_GenotypeGVCFs/{project_name}.vcf'.format(project_name=project_name))
+         in_file = os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs/{project_name}.vcf'.format(project_name=project_name))
     output:
-          out_file = os.path.join(output_folder,'GATK_SelectVariants_Indels/{project_name}_indel.vcf'.format(project_name=project_name)),
-          out_tmp_dir = temp(directory(os.path.join(output_folder,'GATK_SelectVariants_Indels/tmp/')))
+          out_file = os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_Indels/{project_name}_indel.vcf'.format(project_name=project_name)),
+          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_Indels/tmp/')))
     log:
-       os.path.join(output_folder,'GATK_SelectVariants_Indels_log/{project_name}_indel.log'.format(project_name=project_name))
+       os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_Indels_log/{project_name}_indel.log'.format(project_name=project_name))
     params:
           '--select-type-to-include INDEL'
     resources:

@@ -47,10 +47,10 @@ rule all:
          expand(os.path.abspath(output_folder)+'/GATK_AddOrReplaceReadGroups/{sample}.bam', sample=samples),
          expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf/{sample}.g.vcf', sample=samples),
          expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf_gz/{sample}.g.vcf.gz', sample=samples),
-         os.path.join(output_folder,'GATK_CombineGVCFs/{project_name}.g.vcf'.format(project_name=project_name)),
-         os.path.join(output_folder,'GATK_GenotypeGVCFs/{project_name}.vcf'.format(project_name=project_name)),
-         os.path.join(output_folder,'GATK_SelectVariants_SNPs/{project_name}_snp.vcf'.format(project_name=project_name)),
-         os.path.join(output_folder,'GATK_SelectVariants_Indels/{project_name}_indel.vcf'.format(project_name=project_name))
+         os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs/{project_name}.g.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs/{project_name}.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_SNPs/{project_name}_snp.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_Indels/{project_name}_indel.vcf'.format(project_name=project_name))
 
 include: './tasks/bwa/bwa_mem_pair.smk'
 

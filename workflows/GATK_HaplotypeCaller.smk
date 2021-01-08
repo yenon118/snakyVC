@@ -34,12 +34,12 @@ rule all:
 rule gatk_haplotypecaller:
     input:
          fasta = reference_file,
-         in_file = os.path.join(input_folder,'{sample}'+input_extension)
+         in_file = os.path.join(os.path.abspath(input_folder),'{sample}'+input_extension)
     output:
-          out_file = os.path.join(output_folder,'GATK_HaplotypeCaller_gvcf/{sample}.g.vcf'),
-          out_tmp_dir = temp(directory(os.path.join(output_folder,'GATK_HaplotypeCaller_gvcf/tmp/{sample}')))
+          out_file = os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf/{sample}.g.vcf'),
+          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf/tmp/{sample}')))
     log:
-       os.path.join(output_folder,'GATK_HaplotypeCaller_gvcf_log/{sample}.log')
+       os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_log/{sample}.log')
     params:
           '-ERC GVCF'
     resources:

@@ -1,11 +1,11 @@
 rule bwa_mem:
     input:
          fasta = reference_file,
-         fastq_r1 = os.path.join(input_folder_1,'{sample}'+input_extension_1),
-         fastq_r2 = os.path.join(input_folder_2,'{sample}'+input_extension_2)
+         fastq_r1 = os.path.join(os.path.abspath(input_folder_1),'{sample}'+input_extension_1),
+         fastq_r2 = os.path.join(os.path.abspath(input_folder_2),'{sample}'+input_extension_2)
     output:
-          out_file = os.path.join(output_folder,'BWA_sam/{sample}.sam'),
-          out_log_file = os.path.join(output_folder,'BWA_sam_log/{sample}.log')
+          out_file = os.path.join(os.path.abspath(output_folder),'BWA_sam/{sample}.sam'),
+          out_log_file = os.path.join(os.path.abspath(output_folder),'BWA_sam_log/{sample}.log')
     threads: threads
     conda:
          "./../../envs/bwa.yaml"

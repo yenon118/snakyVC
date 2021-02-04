@@ -26,11 +26,6 @@ for i in range(len(input_files)):
         input_extension = possible_extension
 
 
-print(samples)
-print(chromosomes)
-
-print(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/{project_name}_{{chromosome}}/'.format(project_name=project_name)))
-
 rule all:
     input:
          expand(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/{project_name}_{{chromosome}}'.format(project_name=project_name)), chromosome=chromosomes),
@@ -47,8 +42,8 @@ rule gatk_genomicsdbimport:
           joined_in_files = ' '.join(['-V '+os.path.join(os.path.abspath(input_folder),str('{sample}'+input_extension).format(sample=sample)) for sample in samples]),
           selected_chromosome = "{chromosome}"
     output:
-          out_dir = os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/{project_name}_{{chromosome}}'.format(project_name=project_name)),
-          out_tmp_dir = temp(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/tmp_{chromosome}'))
+          out_dir = directory(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/{project_name}_{{chromosome}}'.format(project_name=project_name))),
+          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/tmp_{chromosome}')))
     log:
        os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport_log/{project_name}_{{chromosome}}.log'.format(project_name=project_name))
     resources:

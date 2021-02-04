@@ -11,11 +11,11 @@ In order to run the snakyVC, users need to install software, programming languag
 The software, programming languages, and packages include: 
 
 ```
-BWA
-GATK
+BWA>=0.7.15
+GATK>=4.1.7.0
 HTSlib
-Python3
-Snakemake
+Python3>=3.7.0
+Snakemake>=5.31.0
 ``` 
 
 ## Installation

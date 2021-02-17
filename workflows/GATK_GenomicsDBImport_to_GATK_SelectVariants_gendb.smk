@@ -32,7 +32,7 @@ rule all:
          expand(os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs_gendb/{project_name}_{{chromosome}}.vcf'.format(project_name=project_name)), chromosome=chromosomes),
          os.path.join(os.path.abspath(output_folder),'GATK_GatherVcfs_gendb/{project_name}.vcf'.format(project_name=project_name)),
          os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gendb_SNPs/{project_name}_snp.vcf'.format(project_name=project_name)),
-         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gen_Indels/{project_name}_indel.vcf'.format(project_name=project_name))
+         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gendb_Indels/{project_name}_indel.vcf'.format(project_name=project_name))
 
 
 rule gatk_genomicsdbimport:

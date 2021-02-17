@@ -28,24 +28,24 @@ for i in range(len(input_files)):
 
 rule all:
     input:
-         expand(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/{project_name}_{{chromosome}}'.format(project_name=project_name)), chromosome=chromosomes),
-         expand(os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs_gendb/{project_name}_{{chromosome}}.vcf'.format(project_name=project_name)), chromosome=chromosomes),
-         os.path.join(os.path.abspath(output_folder),'GATK_GatherVcfs_gendb/{project_name}.vcf'.format(project_name=project_name)),
-         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gendb_SNPs/{project_name}_snp.vcf'.format(project_name=project_name)),
-         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gendb_Indels/{project_name}_indel.vcf'.format(project_name=project_name))
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport','{project_name}_{{chromosome}}'.format(project_name=project_name)), chromosome=chromosomes),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs_gendb','{project_name}_{{chromosome}}.vcf'.format(project_name=project_name)), chromosome=chromosomes),
+         os.path.join(os.path.abspath(output_folder),'GATK_GatherVcfs_gendb','{project_name}.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gendb_SNPs','{project_name}_snp.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gendb_Indels','{project_name}_indel.vcf'.format(project_name=project_name))
 
 
 rule gatk_genomicsdbimport:
     input:
-         in_file = expand(os.path.abspath(input_folder)+'/{sample}'+input_extension, sample=samples)
+         in_file = expand(os.path.join(os.path.abspath(input_folder),'{sample}'+input_extension), sample=samples)
     params:
           joined_in_files = ' '.join(['-V '+os.path.join(os.path.abspath(input_folder),str('{sample}'+input_extension).format(sample=sample)) for sample in samples]),
           selected_chromosome = "{chromosome}"
     output:
-          out_dir = directory(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/{project_name}_{{chromosome}}'.format(project_name=project_name))),
-          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport/tmp_{chromosome}')))
+          out_dir = directory(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport','{project_name}_{{chromosome}}'.format(project_name=project_name))),
+          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport','tmp_{chromosome}')))
     log:
-       os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport_log/{project_name}_{{chromosome}}.log'.format(project_name=project_name))
+       os.path.join(os.path.abspath(output_folder),'GATK_GenomicsDBImport_log','{project_name}_{{chromosome}}.log'.format(project_name=project_name))
     resources:
              memory = memory
     conda:

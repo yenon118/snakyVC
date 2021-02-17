@@ -40,17 +40,17 @@ for i in range(len(input_files_2)):
 
 rule all:
     input:
-         expand(os.path.abspath(output_folder)+'/BWA_sam/{sample}.sam', sample=samples),
-         expand(os.path.abspath(output_folder)+'/BWA_sam_log/{sample}.log', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_SortSam/{sample}.bam', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_MarkDuplicates/{sample}.bam', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_AddOrReplaceReadGroups/{sample}.bam', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf/{sample}.g.vcf', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf_gz/{sample}.g.vcf.gz', sample=samples),
-         os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs/{project_name}.g.vcf'.format(project_name=project_name)),
-         os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs/{project_name}.vcf'.format(project_name=project_name)),
-         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_SNPs/{project_name}_snp.vcf'.format(project_name=project_name)),
-         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_Indels/{project_name}_indel.vcf'.format(project_name=project_name))
+         expand(os.path.join(os.path.abspath(output_folder),'BWA_sam','{sample}.sam'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'BWA_sam_log','{sample}.log'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_SortSam','{sample}.bam'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_MarkDuplicates','{sample}.bam'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_AddOrReplaceReadGroups','{sample}.bam'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf','{sample}.g.vcf'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}.g.vcf.gz'), sample=samples),
+         os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs','{project_name}.g.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs','{project_name}.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_SNPs','{project_name}_snp.vcf'.format(project_name=project_name)),
+         os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_Indels','{project_name}_indel.vcf'.format(project_name=project_name))
 
 include: './tasks/bwa/bwa_mem_pair.smk'
 

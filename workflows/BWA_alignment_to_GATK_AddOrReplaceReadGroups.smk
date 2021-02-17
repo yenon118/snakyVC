@@ -39,10 +39,10 @@ for i in range(len(input_files_2)):
 
 rule all:
     input:
-         expand(os.path.abspath(output_folder)+'/BWA_sam/{sample}.sam', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_SortSam/{sample}.bam', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_MarkDuplicates/{sample}.bam', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_AddOrReplaceReadGroups/{sample}.bam', sample=samples)
+         expand(os.path.join(os.path.abspath(output_folder),'BWA_sam','{sample}.sam'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_SortSam','{sample}.bam'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_MarkDuplicates','{sample}.bam'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_AddOrReplaceReadGroups','{sample}.bam'), sample=samples)
 
 include: './../tasks/bwa/bwa_mem_pair.smk'
 

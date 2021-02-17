@@ -1,14 +1,30 @@
 
-snakemake -np -j4 --configfile inputs.json --snakefile snakyVC.smk
-
-snakemake -j4 --configfile inputs.json --snakefile snakyVC.smk
+snakemake -pj 10 --configfile inputs.json --snakefile snakyVC.smk
 
 
-snakemake -np -j4 --configfile workflow_inputs/BWA_alignment_to_GATK_HaplotypeCaller_inputs.json \
+snakemake -pj 10 --configfile workflow_inputs/BWA_alignment_to_GATK_HaplotypeCaller_inputs.json \
 --snakefile workflows/BWA_alignment_to_GATK_HaplotypeCaller.smk
 
-snakemake -j4 --configfile workflow_inputs/BWA_alignment_to_GATK_HaplotypeCaller_inputs.json \
+snakemake -pj 10 --configfile workflow_inputs/GATK_CombineGVCFs_to_GATK_SelectVariants_inputs.json \
+--snakefile workflows/GATK_CombineGVCFs_to_GATK_SelectVariants.smk
+
+
+snakemake -pj 10 --configfile workflow_inputs/BWA_alignment_to_GATK_AddOrReplaceReadGroups_inputs.json \
+--snakefile workflows/BWA_alignment_to_GATK_AddOrReplaceReadGroups.smk
+
+snakemake -pj 10 --configfile workflow_inputs/GATK_HaplotypeCaller_inputs.json \
+--snakefile workflows/GATK_HaplotypeCaller.smk
+
+snakemake -pj 10 --configfile workflow_inputs/GATK_CombineGVCFs_to_GATK_SelectVariants_chromosomewise_inputs.json \
+--snakefile workflows/GATK_CombineGVCFs_to_GATK_SelectVariants_chromosomewise.smk
+
+
+snakemake -pj 10 --configfile workflow_inputs/BWA_alignment_to_GATK_HaplotypeCaller_inputs.json \
 --snakefile workflows/BWA_alignment_to_GATK_HaplotypeCaller.smk
+
+snakemake -pj 10 --configfile workflow_inputs/GATK_GenomicsDBImport_to_GATK_SelectVariants_gendb_inputs.json \
+--snakefile workflows/GATK_GenomicsDBImport_to_GATK_SelectVariants_gendb.smk
+
 
 
 snakemake -j9 --configfile lewis_slurm_inputs.json --snakefile snakyVC.smk

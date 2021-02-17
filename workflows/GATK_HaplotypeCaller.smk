@@ -27,8 +27,8 @@ for i in range(len(input_files)):
 
 rule all:
     input:
-         expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf/{sample}.g.vcf', sample=samples),
-         expand(os.path.abspath(output_folder)+'/GATK_HaplotypeCaller_gvcf_gz/{sample}.g.vcf.gz', sample=samples)
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf','{sample}.g.vcf'), sample=samples),
+         expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}.g.vcf.gz'), sample=samples)
 
 
 rule gatk_haplotypecaller:
@@ -36,10 +36,10 @@ rule gatk_haplotypecaller:
          fasta = reference_file,
          in_file = os.path.join(os.path.abspath(input_folder),'{sample}'+input_extension)
     output:
-          out_file = os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf/{sample}.g.vcf'),
-          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf/tmp/{sample}')))
+          out_file = os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf','{sample}.g.vcf'),
+          out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf','tmp','{sample}')))
     log:
-       os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_log/{sample}.log')
+       os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_log','{sample}.log')
     params:
           '-ERC GVCF'
     resources:

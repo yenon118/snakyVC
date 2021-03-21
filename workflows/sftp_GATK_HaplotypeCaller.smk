@@ -4,12 +4,12 @@ import re
 
 from snakemake.remote.SFTP import RemoteProvider
 
-workflow_path = config['workflow_path']
 input_files = config['input_files']
 output_folder = config['output_folder']
 host = config['host']
 username = config['username']
 password = config['password']
+local_workflow_path = config['local_workflow_path']
 local_reference_file = config['local_reference_file']
 local_tmp_folder = config['local_tmp_folder']
 memory = config['memory']

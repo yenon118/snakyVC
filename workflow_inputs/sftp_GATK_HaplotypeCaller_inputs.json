@@ -1,0 +1,17 @@
+{
+    "workflow_path": "/scratch/yenc/projects/snakyVC",
+    "input_files": [
+        "/scratch/yenc/projects/snakyVC/output/GATK_AddOrReplaceReadGroups/CCCRR108616.bam",
+        "/scratch/yenc/projects/snakyVC/output/GATK_AddOrReplaceReadGroups/CCCRR108617.bam",
+        "/scratch/yenc/projects/snakyVC/output/GATK_AddOrReplaceReadGroups/CCCRR108618.bam",
+        "/scratch/yenc/projects/snakyVC/output/GATK_AddOrReplaceReadGroups/CCCRR108619.bam"
+    ],
+    "output_folder": "/scratch/yenc/projects/snakyVC/output/",
+    "host": "plsci1.rnet.missouri.edu",
+    "username": "chanye",
+    "password": "",
+    "local_reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
+    "local_tmp_folder": "/scratch/yenc/projects/snakyVC/output/tmp/",
+    "memory": 100,
+    "threads": 10
+}

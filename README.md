@@ -13,7 +13,8 @@ The software, programming languages, and packages include:
 ```
 BWA>=0.7.15
 GATK>=4.1.7.0
-HTSlib
+samtools>=1.10
+HTSlib>=1.10
 Python3>=3.7.0
 Snakemake>=5.31.0
 ``` 

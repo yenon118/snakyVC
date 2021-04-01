@@ -2,7 +2,6 @@ import sys
 import os
 import re
 
-project_name = config['project_name']
 workflow_path = config['workflow_path']
 input_files = config['input_files']
 reference_file = config['reference_file']

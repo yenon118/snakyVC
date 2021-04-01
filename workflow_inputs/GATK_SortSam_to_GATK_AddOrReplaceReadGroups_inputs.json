@@ -1,5 +1,4 @@
 {
-  "project_name": "Test",
   "workflow_path": "/scratch/yenc/projects/snakyVC",
   "input_files": [
     "/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108616.sam",

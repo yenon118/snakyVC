@@ -5,6 +5,8 @@
 /data/Wm82.a2.v1.subset.fa.fai
 /data/Wm82.a2.v1.subset.fa.pac
 /data/Wm82.a2.v1.subset.fa.sa
+data/alleles_file.vcf
+data/alleles_file.vcf.idx
 
 /output/
 

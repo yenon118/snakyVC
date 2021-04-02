@@ -4,7 +4,6 @@ import re
 
 workflow_path = config['workflow_path']
 input_files = config['input_files']
-alleles_file = config['alleles_file']
 reference_file = config['reference_file']
 output_folder = config['output_folder']
 memory = config['memory']
@@ -35,15 +34,12 @@ rule all:
 rule gatk_haplotypecaller:
     input:
         fasta = reference_file,
-        alleles = alleles_file,
         in_file = os.path.join(os.path.abspath(input_folder),'{sample}'+input_extension)
     output:
         out_file = os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_vcf','{sample}.vcf'),
         out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_vcf','tmp','{sample}')))
     log:
         os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_vcf_log','{sample}.log')
-    params:
-        '--force-call-filtered-alleles'
     resources:
         memory = memory
     conda:
@@ -51,7 +47,7 @@ rule gatk_haplotypecaller:
     shell:
         """
         mkdir -p {output.out_tmp_dir};
-        gatk --java-options "-Xmx{resources.memory}g" HaplotypeCaller --tmp-dir {output.out_tmp_dir} {params} --alleles {input.alleles} -R {input.fasta} -I {input.in_file} -O {output.out_file} 2> {log}
+        gatk --java-options "-Xmx{resources.memory}g" HaplotypeCaller --tmp-dir {output.out_tmp_dir} --output-mode EMIT_ALL_CONFIDENT_SITES -R {input.fasta} -I {input.in_file} -O {output.out_file} 2> {log}
         """
 
 include: './../tasks/bgzip/bgzip_gz_vcf_file.smk'

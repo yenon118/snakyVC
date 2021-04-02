@@ -44,6 +44,7 @@ rule all:
          expand(os.path.join(os.path.abspath(output_folder),'GATK_MarkDuplicates','{sample}.bam'), sample=samples),
          expand(os.path.join(os.path.abspath(output_folder),'GATK_AddOrReplaceReadGroups','{sample}.bam'), sample=samples)
 
+
 include: './../tasks/bwa/bwa_mem_pair.smk'
 
 include: './../tasks/gatk/gatk_sortsam.smk'

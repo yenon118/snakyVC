@@ -1,4 +1,4 @@
-rule bgzip_gz_gvcf_file:
+rule bgzip_gz_vcf_file:
     input:
          in_file = os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_vcf','{sample}.vcf')
     output:

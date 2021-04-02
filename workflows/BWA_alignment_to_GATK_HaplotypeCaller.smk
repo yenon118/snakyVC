@@ -46,6 +46,7 @@ rule all:
          expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf','{sample}.g.vcf'), sample=samples),
          expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}.g.vcf.gz'), sample=samples)
 
+
 include: './../tasks/bwa/bwa_mem_pair.smk'
 
 include: './../tasks/gatk/gatk_sortsam.smk'

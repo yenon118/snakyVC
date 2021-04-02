@@ -13,7 +13,6 @@ samples = []
 input_folder = ''
 input_extension = ''
 
-
 for i in range(len(input_files)):
     if os.path.dirname(input_files[i]) != input_folder:
         input_folder = os.path.dirname(input_files[i])
@@ -49,5 +48,6 @@ rule gatk_haplotypecaller:
         mkdir -p {output.out_tmp_dir};
         gatk --java-options "-Xmx{resources.memory}g" HaplotypeCaller --tmp-dir {output.out_tmp_dir} --output-mode EMIT_ALL_CONFIDENT_SITES -R {input.fasta} -I {input.in_file} -O {output.out_file} 2> {log}
         """
+
 
 include: './../tasks/bgzip/bgzip_gz_vcf_file.smk'

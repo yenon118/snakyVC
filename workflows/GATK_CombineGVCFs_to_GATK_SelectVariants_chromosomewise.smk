@@ -52,6 +52,7 @@ rule grep_gatk_haplotypecaller:
          grep -e "^#" -e "{params.selected_chromosome}" {input.in_file} > {output.out_file}
          """
 
+
 include: './../tasks/gatk/gatk_combinegvcfs_chromosomewise.smk'
 include: './../tasks/gatk/gatk_genotypegvcfs_chromosomewise.smk'
 include: './../tasks/gatk/gatk_gathervcfs_chromosomewise.smk'

@@ -13,7 +13,6 @@ samples = []
 input_folder = ''
 input_extension = ''
 
-
 for i in range(len(input_files)):
     if os.path.dirname(input_files[i]) != input_folder:
         input_folder = os.path.dirname(input_files[i])

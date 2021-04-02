@@ -56,6 +56,7 @@ rule gatk_genomicsdbimport:
          gatk --java-options "-Xmx{resources.memory}g" GenomicsDBImport --tmp-dir {output.out_tmp_dir} {params.joined_in_files} --genomicsdb-workspace-path {output.out_dir} -L {params.selected_chromosome} 2> {log}
          """
 
+
 include: './../tasks/gatk/gatk_genotypegvcfs_gendb.smk'
 include: './../tasks/gatk/gatk_gathervcfs_gendb.smk'
 include: './../tasks/gatk/gatk_selectvariants_gendb_snp.smk'

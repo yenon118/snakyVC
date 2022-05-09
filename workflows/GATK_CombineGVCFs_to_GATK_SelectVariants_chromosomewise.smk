@@ -28,35 +28,36 @@ for i in range(len(input_files)):
 
 rule all:
 	input:
-		expand(os.path.join(os.path.abspath(output_folder), 'GATK_HaplotypeCaller_gvcf_gz_{chromosome}', '{sample}_{chromosome}.g.vcf.gz'), sample=samples, chromosome=chromosomes),
-		expand(os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz_{chromosome}','{project_name}_{{chromosome}}.g.vcf.gz'.format(project_name=project_name)), chromosome=chromosomes),
-		expand(os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs_gz_{chromosome}','{project_name}_{{chromosome}}.vcf.gz'.format(project_name=project_name)), chromosome=chromosomes),
+		expand(os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz','{project_name}_{{chromosome}}.g.vcf.gz'.format(project_name=project_name)), chromosome=chromosomes),
+		expand(os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs_gz','{project_name}_{{chromosome}}.vcf.gz'.format(project_name=project_name)), chromosome=chromosomes),
 		os.path.join(os.path.abspath(output_folder),'GATK_GatherVcfs_gz_chromosomewise','{project_name}.vcf.gz'.format(project_name=project_name)),
 		os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gz_chromosomewise_SNPs','{project_name}_snp.vcf.gz'.format(project_name=project_name)),
 		os.path.join(os.path.abspath(output_folder),'GATK_SelectVariants_gz_chromosomewise_Indels','{project_name}_indel.vcf.gz'.format(project_name=project_name))
 
 
-rule gatk_selectvariants_chromosomewise:
+rule gatk_combinegvcfs_chromosomewise:
 	input:
 		fasta = reference_file,
-		in_file = os.path.join(os.path.abspath(input_folder),'{sample}'+input_extension)
+		in_file = expand(os.path.join(os.path.abspath(input_folder),'{sample}'+input_extension), sample=samples)
 	params:
+		all_gvcf_in_files = ' '.join(['-V '+os.path.join(os.path.abspath(input_folder),str('{sample}'+input_extension).format(sample=sample)) for sample in samples]),
 		selected_chromosome = "{chromosome}"
 	output:
-		out_file = os.path.join(os.path.abspath(output_folder), 'GATK_HaplotypeCaller_gvcf_gz_{chromosome}', '{sample}_{chromosome}.g.vcf.gz'),
-		out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz_{chromosome}','tmp', '{sample}')))
+		out_file = os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz','{project_name}_{{chromosome}}.g.vcf.gz'.format(project_name=project_name)),
+		out_tmp_dir = temp(directory(os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz','tmp_{chromosome}')))
 	log:
-		os.path.join(os.path.abspath(output_folder), 'GATK_HaplotypeCaller_gvcf_gz_{chromosome}_log', '{sample}_{chromosome}.log')
+		os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz_log','{project_name}_{{chromosome}}.log'.format(project_name=project_name))
 	resources:
 		memory = memory
+	conda:
+	   "./../../envs/gatk.yaml"
 	shell:
-		"""
-		mkdir -p {output.out_tmp_dir}; 
-		gatk --java-options "-Xmx{resources.memory}g" SelectVariants --tmp-dir {output.out_tmp_dir} -R {input.fasta} -V {input.in_file} -L {params.selected_chromosome} -O {output.out_file} 2> {log}
-		"""
+	   """
+	   mkdir -p {output.out_tmp_dir};
+	   gatk --java-options "-Xmx{resources.memory}g" CombineGVCFs --tmp-dir {output.out_tmp_dir} -R {input.fasta} {params.all_gvcf_in_files} -L {params.selected_chromosome} -O {output.out_file} 2> {log}
+	   """
 
 
-include: './../tasks/gatk/gatk_combinegvcfs_chromosomewise.smk'
 include: './../tasks/gatk/gatk_genotypegvcfs_chromosomewise.smk'
 include: './../tasks/gatk/gatk_gathervcfs_chromosomewise.smk'
 include: './../tasks/gatk/gatk_selectvariants_chromosomewise_snp.smk'

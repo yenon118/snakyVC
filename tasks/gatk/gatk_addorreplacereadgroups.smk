@@ -11,8 +11,6 @@ rule gatk_addorreplacereadgroups:
 		p2 = '--RGID {sample} --RGLB {sample} --RGPL Illumina --RGPU {sample} --RGSM {sample} --RGCN BGI'
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		'mkdir -p {output.out_tmp_dir}; '
 		'gatk --java-options "-Xmx{resources.memory}g" AddOrReplaceReadGroups --TMP_DIR {output.out_tmp_dir} {params.p1} {params.p2} -I {input.in_file} -O {output.out_file} 2> {log}'

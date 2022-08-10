@@ -10,8 +10,6 @@ rule gatk_sortsam:
 		'--SORT_ORDER coordinate --CREATE_INDEX true --MAX_RECORDS_IN_RAM 5000000 --VALIDATION_STRINGENCY LENIENT'
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		'mkdir -p {output.out_tmp_dir}; '
 		'gatk --java-options "-Xmx{resources.memory}g" SortSam --TMP_DIR {output.out_tmp_dir} {params} -I {input.in_file} -O {output.out_file} 2> {log}'

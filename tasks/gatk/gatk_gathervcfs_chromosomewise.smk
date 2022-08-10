@@ -11,8 +11,6 @@ rule gatk_gathervcfs_chromosomewise:
           os.path.join(os.path.abspath(output_folder),'GATK_GatherVcfs_gz_chromosomewise_log','{project_name}.log'.format(project_name=project_name))
     resources:
           memory = memory
-    conda:
-          "./../../envs/gatk.yaml"
     shell:
           """
           mkdir -p {output.out_tmp_dir};

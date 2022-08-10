@@ -42,8 +42,6 @@ rule gatk_haplotypecaller:
 		'-ERC GVCF'
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		'mkdir -p {output.out_tmp_dir}; '
 		'gatk --java-options "-Xmx{resources.memory}g" HaplotypeCaller --tmp-dir {output.out_tmp_dir} {params} -R {input.fasta} -I {input.in_file} -O {output.out_file} 2> {log}'

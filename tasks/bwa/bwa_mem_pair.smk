@@ -7,7 +7,5 @@ rule bwa_mem:
 		out_file = os.path.join(os.path.abspath(output_folder),'BWA_sam','{sample}.sam'),
 		out_log_file = os.path.join(os.path.abspath(output_folder),'BWA_sam_log','{sample}.log')
 	threads: threads
-	conda:
-		"./../../envs/bwa.yaml"
 	shell:
 		'bwa mem -t {threads} -M {input.fasta} {input.fastq_r1} {input.fastq_r2} 2> {output.out_log_file} > {output.out_file}'

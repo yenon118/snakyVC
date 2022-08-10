@@ -9,8 +9,6 @@ rule gatk_genotypegvcfs_chromosomewise:
 		os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs_gz_log','{project_name}_{{chromosome}}.log'.format(project_name=project_name))
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		"""
 		mkdir -p {output.out_tmp_dir};

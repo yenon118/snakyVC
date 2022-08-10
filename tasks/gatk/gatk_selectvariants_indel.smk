@@ -11,8 +11,6 @@ rule gatk_selectvariants_indel:
 		'--select-type-to-include INDEL'
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		"""
 		mkdir -p {output.out_tmp_dir}; 

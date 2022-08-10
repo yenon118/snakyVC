@@ -51,8 +51,6 @@ rule sftp_gatk_haplotypecaller:
 		'-ERC GVCF'
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		"""
 		mkdir -p {output.out_tmp_dir};

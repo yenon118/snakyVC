@@ -11,8 +11,6 @@ rule gatk_combinegvcfs:
 		os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz_log','{project_name}.log'.format(project_name=project_name))
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		"""
 		mkdir -p {output.out_tmp_dir}; 

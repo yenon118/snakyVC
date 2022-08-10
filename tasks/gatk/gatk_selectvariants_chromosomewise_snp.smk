@@ -11,8 +11,6 @@ rule gatk_selectvariants_chromosomewise_snp:
 		'--select-type-to-include SNP'
 	resources:
 		memory = memory
-	conda:
-		"./../../envs/gatk.yaml"
 	shell:
 		"""
 		mkdir -p {output.out_tmp_dir};

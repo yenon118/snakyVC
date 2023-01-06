@@ -98,3 +98,14 @@ snakemake --cluster "sbatch --account=xulab \
 --jobs 30 --latency-wait 180 --configfile lewis_slurm_inputs.json --snakefile snakyVC.smk
 ```
 
+## Flowchart
+
+![SnakyVC_pipeline_flowchart](https://user-images.githubusercontent.com/22091525/210927434-b8a63da6-d635-4c25-9fca-155513ac1aab.png)
+
+## Remark
+
+1. The GATK:CombineGVCFs and GATK:GenotypeGVCFs are not parallelizable. If users are combining a large number of accessions into one to perform calling, these two processes will take a lot of time.
+2. The execution time of the SnakyVC pipeline mainly depends on the size of the data and the available computing resources on the machine.
+
+
+

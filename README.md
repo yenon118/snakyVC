@@ -102,6 +102,10 @@ snakemake --cluster "sbatch --account=xulab \
 
 ![SnakyVC_pipeline_flowchart](https://user-images.githubusercontent.com/22091525/210927434-b8a63da6-d635-4c25-9fca-155513ac1aab.png)
 
+## Citation
+
+Chan YO, Dietz N, Zeng S, Wang J, Flint-Garcia S, Salazar-Vidal MN, Škrabišová M, Bilyeu K, Joshi T: **The Allele Catalog Tool: a web-based interactive tool for allele discovery and analysis.** BMC Genomics 2023, 24(1):107.
+
 ## Remarks
 
 1. The GATK:CombineGVCFs and GATK:GenotypeGVCFs are not parallelizable. If users are combining a large number of accessions into one to perform calling, these two processes will take a lot of time.

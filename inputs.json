@@ -1,20 +1,20 @@
 {
-  "project_name": "Test",
-  "workflow_path": "/scratch/yenc/projects/snakyVC",
-  "input_files_1": [
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108616_r1.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108617_r1.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108618_r1.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108619_r1.fastq"
-  ],
-  "input_files_2": [
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108616_r2.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108617_r2.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108618_r2.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108619_r2.fastq"
-  ],
-  "reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
-  "output_folder": "/scratch/yenc/projects/snakyVC/output/",
-  "memory": 100,
-  "threads": 10
+	"project_name": "Test",
+	"workflow_path": "/scratch/yenc/projects/snakyVC",
+	"input_files_1": [
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108616_1.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108617_1.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108618_1.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108619_1.fastq"
+	],
+	"input_files_2": [
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108616_2.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108617_2.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108618_2.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108619_2.fastq"
+	],
+	"reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
+	"output_folder": "/scratch/yenc/projects/snakyVC/output/",
+	"memory": 100,
+	"threads": 10
 }

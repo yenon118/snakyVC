@@ -8,7 +8,7 @@ The snakyVC is a pipeline built for variant calling using next-generation sequen
 ## Requirements
 
 In order to run the snakyVC, users need to install software, programming languages, and packages in their computing systems.
-The software, programming languages, and packages include: 
+The software, programming languages, and packages include:
 
 ```
 BWA>=0.7.15
@@ -17,7 +17,7 @@ samtools>=1.10
 HTSlib>=1.10
 Python3>=3.7.0
 Snakemake>=5.31.0
-``` 
+```
 
 ## Installation
 
@@ -35,24 +35,24 @@ Please save the file with .json extension.
 
 ```
 {
-  "project_name": "Test",
-  "workflow_path": "/scratch/yenc/projects/snakyVC",
-  "input_files_1": [
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108616_r1.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108617_r1.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108618_r1.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108619_r1.fastq"
-  ],
-  "input_files_2": [
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108616_r2.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108617_r2.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108618_r2.fastq",
-    "/scratch/yenc/projects/snakyVC/data/CCCRR108619_r2.fastq"
-  ],
-  "reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
-  "output_folder": "/scratch/yenc/projects/snakyVC/output/",
-  "memory": 100,
-  "threads": 10
+	"project_name": "Test",
+	"workflow_path": "/scratch/yenc/projects/snakyVC",
+	"input_files_1": [
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108616_1.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108617_1.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108618_1.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108619_1.fastq"
+	],
+	"input_files_2": [
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108616_2.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108617_2.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108618_2.fastq",
+		"/scratch/yenc/projects/snakyVC/data/CCCRR108619_2.fastq"
+	],
+	"reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
+	"output_folder": "/scratch/yenc/projects/snakyVC/output/",
+	"memory": 100,
+	"threads": 10
 }
 ```
 
@@ -62,9 +62,9 @@ Please save the file with .json extension.
 snakemake -j NUMBER_OF_JOBS --configfile CONFIGURATION_FILE --snakefile SNAKEMAKE_FILE
 
 Mandatory Positional Argumants:
-    NUMBER_OF_JOBS                          - the number of jobs
-    CONFIGURATION_FILE                      - a configuration file
-    SNAKEMAKE_FILE                          - the snakyVC.smk file that sit inside this repository 
+	NUMBER_OF_JOBS                          - the number of jobs
+	CONFIGURATION_FILE                      - a configuration file
+	SNAKEMAKE_FILE                          - the snakyVC.smk file that sit inside this repository
 ```
 
 ## Examples

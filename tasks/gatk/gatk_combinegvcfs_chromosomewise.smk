@@ -1,9 +1,9 @@
 rule gatk_combinegvcfs_chromosomewise:
 	input:
 		fasta = reference_file,
-		in_file = [os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}_{{chromosome}}.g.vcf.gz'.format(sample=sample)) for sample in samples]
+		in_file = expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}.g.vcf.gz'), sample=samples)
 	params:
-		all_gvcf_in_files = ' '.join(['-V '+os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}_{{chromosome}}.g.vcf.gz'.format(sample=sample)) for sample in samples]),
+		all_gvcf_in_files = ' '.join(['-V '+os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}.g.vcf.gz'.format(sample=sample)) for sample in samples]),
 		selected_chromosome = '{chromosome}'
 	output:
 		out_file = os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz','{project_name}_{{chromosome}}.g.vcf.gz'.format(project_name=project_name)),

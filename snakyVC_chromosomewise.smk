@@ -46,7 +46,7 @@ rule all:
 		expand(os.path.join(os.path.abspath(output_folder),'GATK_SortSam','{sample}.bam'), sample=samples),
 		expand(os.path.join(os.path.abspath(output_folder),'GATK_MarkDuplicates','{sample}.bam'), sample=samples),
 		expand(os.path.join(os.path.abspath(output_folder),'GATK_AddOrReplaceReadGroups','{sample}.bam'), sample=samples),
-		expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}_{chromosome}.g.vcf.gz'), sample=samples, chromosome=chromosomes),
+		expand(os.path.join(os.path.abspath(output_folder),'GATK_HaplotypeCaller_gvcf_gz','{sample}.g.vcf.gz'), sample=samples),
 		expand(os.path.join(os.path.abspath(output_folder),'GATK_CombineGVCFs_gz','{project_name}_{{chromosome}}.g.vcf.gz'.format(project_name=project_name)), chromosome=chromosomes),
 		expand(os.path.join(os.path.abspath(output_folder),'GATK_GenotypeGVCFs_gz','{project_name}_{{chromosome}}.vcf.gz'.format(project_name=project_name)), chromosome=chromosomes),
 		os.path.join(os.path.abspath(output_folder),'GATK_GatherVcfs_gz_chromosomewise','{project_name}.vcf.gz'.format(project_name=project_name)),
@@ -58,7 +58,7 @@ include: './tasks/bwa/bwa_mem_pair.smk'
 include: './tasks/gatk/gatk_sortsam.smk'
 include: './tasks/gatk/gatk_markduplicates.smk'
 include: './tasks/gatk/gatk_addorreplacereadgroups.smk'
-include: './tasks/gatk/gatk_haplotypecaller_chromosomewise.smk'
+include: './tasks/gatk/gatk_haplotypecaller.smk'
 include: './tasks/gatk/gatk_combinegvcfs_chromosomewise.smk'
 include: './tasks/gatk/gatk_genotypegvcfs_chromosomewise.smk'
 include: './tasks/gatk/gatk_gathervcfs_chromosomewise.smk'

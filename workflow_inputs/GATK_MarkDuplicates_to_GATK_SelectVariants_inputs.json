@@ -1,14 +1,14 @@
 {
-  "project_name": "Test",
-  "workflow_path": "/scratch/yenc/projects/snakyVC",
-  "input_files": [
-    "/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108616.bam",
-    "/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108617.bam",
-    "/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108618.bam",
-    "/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108619.bam"
-  ],
-  "reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
-  "output_folder": "/scratch/yenc/projects/snakyVC/output/",
-  "memory": 100,
-  "threads": 10
+	"project_name": "Test",
+	"workflow_path": "/scratch/yenc/projects/snakyVC",
+	"input_files": [
+		"/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108616.bam",
+		"/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108617.bam",
+		"/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108618.bam",
+		"/scratch/yenc/projects/snakyVC/output/GATK_SortSam/CCCRR108619.bam"
+	],
+	"reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
+	"output_folder": "/scratch/yenc/projects/snakyVC/output/",
+	"memory": 100,
+	"threads": 10
 }

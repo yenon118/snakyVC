@@ -1,13 +1,13 @@
 {
-  "workflow_path": "/scratch/yenc/projects/snakyVC",
-  "input_files": [
-    "/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108616.sam",
-    "/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108617.sam",
-    "/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108618.sam",
-    "/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108619.sam"
-  ],
-  "reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
-  "output_folder": "/scratch/yenc/projects/snakyVC/output/",
-  "memory": 100,
-  "threads": 10
+	"workflow_path": "/scratch/yenc/projects/snakyVC",
+	"input_files": [
+		"/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108616.sam",
+		"/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108617.sam",
+		"/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108618.sam",
+		"/scratch/yenc/projects/snakyVC/output/BWA_sam/CCCRR108619.sam"
+	],
+	"reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
+	"output_folder": "/scratch/yenc/projects/snakyVC/output/",
+	"memory": 100,
+	"threads": 10
 }

@@ -1,0 +1,42 @@
+{
+	"project_name": "Test",
+	"workflow_path": "/storage/htc/joshilab/yenc/projects/snakyVC",
+	"input_files_1": [
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108616_1.fastq",
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108617_1.fastq",
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108618_1.fastq",
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108619_1.fastq"
+	],
+	"input_files_2": [
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108616_2.fastq",
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108617_2.fastq",
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108618_2.fastq",
+		"/storage/htc/joshilab/yenc/projects/snakyVC/data/CCCRR108619_2.fastq"
+	],
+	"chromosomes": [
+		"Chr01:1-100000",
+		"Chr02:1-100000",
+		"Chr03:1-100000",
+		"Chr04:1-100000",
+		"Chr05:1-100000",
+		"Chr06:1-100000",
+		"Chr07:1-100000",
+		"Chr08:1-100000",
+		"Chr09:1-100000",
+		"Chr10:1-100000",
+		"Chr11:1-100000",
+		"Chr12:1-100000",
+		"Chr13:1-100000",
+		"Chr14:1-100000",
+		"Chr15:1-100000",
+		"Chr16:1-100000",
+		"Chr17:1-100000",
+		"Chr18:1-100000",
+		"Chr19:1-100000",
+		"Chr20:1-100000"
+	],
+	"reference_file": "/storage/htc/joshilab/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
+	"output_folder": "/storage/htc/joshilab/yenc/projects/snakyVC/output/",
+	"memory": 15,
+	"threads": 10
+}

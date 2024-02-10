@@ -38,7 +38,7 @@ Please also remember to replace the _<desired_new_directory>_ to an actual direc
 
 ```
 chmod 777 -R <installation_shell_script>
-./Miniconda3-latest-Linux-x86_64.sh -b -u -p <desired_new_directory>
+./<installation_shell_script> -b -u -p <desired_new_directory>
 rm -rf <installation_shell_script>
 ```
 
@@ -83,7 +83,7 @@ Please make sure to replace the _<conda_environment_name>_ to an environment nam
 conda create --name <conda_environment_name> --file snakyVC-environment.yml
 ```
 
-Create a Conda environment named *happigwas* by using a explicit specification file (option 3).
+Create a Conda environment by using a explicit specification file (option 3).
 
 Please make sure to replace the _<conda_environment_name>_ to an environment name of your choice.
 

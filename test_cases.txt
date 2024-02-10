@@ -54,18 +54,22 @@ snakemake -pj 10 --configfile lewis_slurm_inputs.json --snakefile snakyVC.smk
 snakemake -pj 10 --configfile lewis_slurm_chromosomewise_inputs.json --snakefile snakyVC_chromosomewise.smk
 
 
-snakemake --cluster "sbatch --account=xulab \
+snakemake --executor cluster-generic \
+--cluster-generic-submit-cmd "sbatch --account=xulab \
 --partition=Lewis,BioCompute,hpc5,General --mem=16G" \
---jobs 30 --latency-wait 180 --configfile lewis_slurm_inputs.json --snakefile snakyVC.smk
+--jobs 30 --latency-wait 180 --configfile lewis_slurm_inputs.json \
+--snakefile snakyVC.smk
 
 
-snakemake --cluster "sbatch --account=xulab \
+snakemake --executor cluster-generic \
+--cluster-generic-submit-cmd "sbatch --account=xulab \
 --partition=Lewis,BioCompute,hpc5,General --mem=16G" \
 --jobs 30 --latency-wait 3600 --immediate-submit --notemp \
 --configfile lewis_slurm_inputs.json --snakefile snakyVC.smk
 
 
-nohup snakemake --cluster "sbatch --account=xulab \
+nohup snakemake --executor cluster-generic \
+--cluster-generic-submit-cmd "sbatch --account=xulab \
 --partition=Lewis,BioCompute,hpc5,General --mem=16G" \
 --jobs 30 --latency-wait 3600 \
 --configfile lewis_slurm_inputs.json --snakefile snakyVC.smk &

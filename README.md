@@ -102,7 +102,7 @@ Please make sure to replace the _<conda_environment_name>_ to an environment nam
 conda create --name <conda_environment_name> --file snakyVC-spec-file.txt
 ```
 
-Activate Conda environment using conda activate command. 
+Activate Conda environment using conda activate command.
 
 This step is required every time before running snakyVC pipeline.
 
@@ -195,7 +195,8 @@ Snakemake version >= 8.0.0.
 cd /path/to/snakyVC
 
 snakemake --executor cluster-generic \
---cluster-generic-submit-cmd "sbatch --account=xulab \
+--cluster-generic-submit-cmd "sbatch --account=xulab --time=1-21:00 \
+--nodes=1 --ntasks=1 --cpus-per-task=3 \
 --partition=Lewis,BioCompute,hpc5,General --mem=16G" \
 --jobs 30 --latency-wait 180 --configfile lewis_slurm_inputs.json \
 --snakefile snakyVC.smk
@@ -206,7 +207,8 @@ Snakemake version < 8.0.0.
 ```
 cd /path/to/snakyVC
 
-snakemake --cluster "sbatch --account=xulab \
+snakemake --cluster "sbatch --account=xulab --time=1-21:00 \
+--nodes=1 --ntasks=1 --cpus-per-task=3 \
 --partition=Lewis,BioCompute,hpc5,General --mem=16G" \
 --jobs 30 --latency-wait 180 --configfile lewis_slurm_inputs.json \
 --snakefile snakyVC.smk

@@ -18,6 +18,7 @@ samtools>=1.6
 htslib>=1.3
 python>=3.12
 snakemake>=8.4
+scipy>=1.12
 numpy>=1.26
 pandas>=2.2
 ```
@@ -82,7 +83,7 @@ Please make sure to replace the _<conda_environment_name>_ to an environment nam
 ```
 conda create -n <conda_environment_name> bioconda::gatk4 bioconda::samtools bioconda::bcftools bioconda::htslib \
 bioconda::bedtools bioconda::bwa bioconda::snakemake bioconda::snakemake-executor-plugin-cluster-generic \
-conda-forge::numpy conda-forge::pandas
+conda-forge::numpy conda-forge::pandas conda-forge::scipy
 ```
 
 Create a Conda environment by using a yaml environment file (option 2).

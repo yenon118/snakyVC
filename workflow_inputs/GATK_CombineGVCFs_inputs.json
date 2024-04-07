@@ -1,0 +1,15 @@
+{
+	"project_name": "Test",
+	"workflow_path": "/scratch/yenc/projects/snakyVC",
+	"input_files": [
+		"/scratch/yenc/projects/snakyVC/output/GATK_HaplotypeCaller_gvcf_gz/CCCRR108616.g.vcf.gz",
+		"/scratch/yenc/projects/snakyVC/output/GATK_HaplotypeCaller_gvcf_gz/CCCRR108617.g.vcf.gz",
+		"/scratch/yenc/projects/snakyVC/output/GATK_HaplotypeCaller_gvcf_gz/CCCRR108618.g.vcf.gz",
+		"/scratch/yenc/projects/snakyVC/output/GATK_HaplotypeCaller_gvcf_gz/CCCRR108619.g.vcf.gz"
+	],
+	"reference_file": "/scratch/yenc/projects/snakyVC/data/Wm82.a2.v1.subset.fa",
+	"output_folder": "/scratch/yenc/projects/snakyVC/output/",
+	"output_prefix": "Test",
+	"memory": 100,
+	"threads": 10
+}
